@@ -433,6 +433,40 @@ function initFoundersAutoScroll() {
   requestAnimationFrame(tick);
 }
 
+function initValuesAutoScroll() {
+  // Only activate on mobile / tablet
+  if (window.innerWidth > 1024) return;
+
+  const scroller = document.querySelector('.values-scroll-wrap');
+  if (!scroller || scroller.dataset.autoscroll === '1') return;
+  scroller.dataset.autoscroll = '1';
+
+  let paused = false;
+  let lastTime = 0;
+  const speed = 0.10; // slightly slower than founders
+
+  function tick(timestamp) {
+    if (!lastTime) lastTime = timestamp;
+    const delta = timestamp - lastTime;
+    lastTime = timestamp;
+
+    if (!paused) {
+      scroller.scrollLeft += delta * speed;
+      if (scroller.scrollLeft + scroller.clientWidth >= scroller.scrollWidth - 1) {
+        scroller.scrollLeft = 0;
+      }
+    }
+    requestAnimationFrame(tick);
+  }
+
+  scroller.addEventListener('mouseenter', () => { paused = true; });
+  scroller.addEventListener('mouseleave', () => { paused = false; });
+  scroller.addEventListener('touchstart', () => { paused = true; }, { passive: true });
+  scroller.addEventListener('touchend', () => { setTimeout(() => { paused = false; }, 1200); });
+
+  requestAnimationFrame(tick);
+}
+
 function initHeroDots() {
   const hero = document.querySelector('.hero');
   const canvas = document.getElementById('heroDots');
@@ -613,6 +647,7 @@ function initContactFormEnhancements() {
   const otherGroup = document.getElementById('otherServiceGroup');
   const otherDetails = document.getElementById('otherServiceDetails');
   const otherCounter = document.getElementById('otherServiceCounter');
+  const submitBtn = document.getElementById('contactSubmitBtn');
 
   function updateOtherVisibility() {
     const isOther = serviceSelect && serviceSelect.value === 'other';
@@ -637,12 +672,10 @@ function initContactFormEnhancements() {
       otherCounter.textContent = words + ' words (max 50)';
       otherCounter.style.color = words > 50 ? 'var(--accent)' : 'var(--ink-3)';
     }
-
     if (words > 50) {
       otherDetails.setCustomValidity('Please enter up to 50 words only.');
       return false;
     }
-
     otherDetails.setCustomValidity('');
     return true;
   }
@@ -650,10 +683,70 @@ function initContactFormEnhancements() {
   if (serviceSelect) serviceSelect.addEventListener('change', updateOtherVisibility);
   if (otherDetails) otherDetails.addEventListener('input', validateOtherWordLimit);
 
-  contactForm.addEventListener('submit', function(e) {
+  // ── AJAX Submit ──────────────────────────────
+  contactForm.addEventListener('submit', async function(e) {
+    e.preventDefault(); // Always prevent page navigation
+
     if (!validateOtherWordLimit()) {
-      e.preventDefault();
       otherDetails.reportValidity();
+      return;
+    }
+
+    // Loading state
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending…';
+      submitBtn.style.opacity = '0.75';
+    }
+
+    try {
+      const formData = new FormData(contactForm);
+      const response = await fetch(contactForm.action, {
+        method: 'POST',
+        body: formData,
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if (response.ok) {
+        // ✅ SUCCESS — show thank you in the button, reset form after 3s
+        contactForm.reset();
+        if (submitBtn) {
+          submitBtn.textContent = 'Thank you, we will connect soon ✓';
+          submitBtn.style.background = '#2d6a4f';
+          submitBtn.style.opacity = '1';
+          submitBtn.disabled = true;
+        }
+        // Auto-reset button back to normal after 3 seconds
+        setTimeout(() => {
+          if (submitBtn) {
+            submitBtn.textContent = 'Send Message →';
+            submitBtn.style.background = '';
+            submitBtn.style.opacity = '1';
+            submitBtn.disabled = false;
+          }
+          // Reset "other service" visibility
+          updateOtherVisibility();
+        }, 3000);
+      } else {
+        // ❌ Server returned error
+        throw new Error('Server error: ' + response.status);
+      }
+    } catch (err) {
+      // ❌ Network / fetch error — restore button and show error
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Send Message →';
+        submitBtn.style.opacity = '1';
+      }
+      // Show inline error
+      let errEl = document.getElementById('contactErrorMsg');
+      if (!errEl) {
+        errEl = document.createElement('p');
+        errEl.id = 'contactErrorMsg';
+        errEl.style.cssText = 'color:var(--accent);font-size:0.88rem;margin-top:0.75rem;text-align:center;font-weight:500';
+        submitBtn.insertAdjacentElement('afterend', errEl);
+      }
+      errEl.textContent = 'Something went wrong. Please try again or email us directly at knectto@gmail.com';
     }
   });
 
@@ -669,9 +762,9 @@ renderFAQ();
 renderServiceFaq();
 initReveal();
 initFoundersAutoScroll();
+initValuesAutoScroll();
 initRotatingQuotes();
 initHeroDots();
-handleContactSuccessState();
 initContactFormEnhancements();
 
 // Number counter animation

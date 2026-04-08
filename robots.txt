@@ -1,0 +1,9 @@
+# Knectto robots.txt
+User-agent: *
+Allow: /
+
+# Block success redirect page from indexing
+Disallow: /success.html
+
+# Sitemap
+Sitemap: https://www.knectto.com/sitemap.xml
