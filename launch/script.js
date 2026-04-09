@@ -1,12 +1,15 @@
 // ─── DATA ───────────────────────────────────
 const TEAM = [
   { initials:'AM', name:'Amit', role:'Founder & Strategy Director', bg:'linear-gradient(135deg,#c8381e,#e85234)' },
-  { initials:'AN', name:'Ankit Sharma', role:'Lead UX & Web Designer', bg:'linear-gradient(135deg,#e07b39,#c8381e)' },
+  { initials:'AN', name:'Ankit Sharma', role:'Lead UX & Web Designer', bg:'linear-gradient(135deg,#e07b39,#c8381e)', image:'../Gemini_Generated_Image_muvmfxmuvmfxmuvm.png' },
   { initials:'AS', name:'Ashutosh Choudhary', role:'SEO & Content Lead', bg:'linear-gradient(135deg,#c9a84c,#a07a2c)' },
   { initials:'AT', name:'Anshuman Tripathi', role:'Analytics & COO Lead', bg:'linear-gradient(135deg,#7b2d8b,#9d4edd)' },
   { initials:'AJ', name:'Ajay Dhar Dubey', role:'Paid Acquisition Specialist', bg:'linear-gradient(135deg,#2d6a4f,#1b4332)' },
   { initials:'SW', name:'Swapnit Patel', role:'Frontend Engineer', bg:'linear-gradient(135deg,#3a0ca3,#4361ee)' },
-  { initials:'SS', name:'Sahil Singh', role:'Brand & Creative Lead', bg:'linear-gradient(135deg,#1b6ca8,#1e90ff)' }
+  { initials:'SS', name:'Sahil Singh', role:'Brand & Creative Lead', bg:'linear-gradient(135deg,#1b6ca8,#1e90ff)' },
+  { initials:'RK', name:'Ravi Kumar', role:'DevOps & Infrastructure', bg:'linear-gradient(135deg,#d62828,#f77f00)' },
+  { initials:'PR', name:'Priya Reddy', role:'Customer Success Lead', bg:'linear-gradient(135deg,#52b788,#06a77d)' },
+  { initials:'VJ', name:'Vikram Jain', role:'Performance Marketing', bg:'linear-gradient(135deg,#ff006e,#d946ef)' }
 ];
 
 const CASES = [
@@ -228,7 +231,7 @@ function renderTeam(containerId, limit) {
   const members = limit ? TEAM.slice(0,limit) : TEAM;
   el.innerHTML = members.map((m,i) => `
     <div class="team-card reveal" style="transition-delay:${i*0.08}s">
-      <div class="team-avatar"><div class="team-avatar-inner" style="background:${m.bg}">${m.initials}</div></div>
+      <div class="team-avatar"><div class="team-avatar-inner" style="background:${m.bg}">${m.image ? `<img class="team-avatar-img" src="${m.image}" alt="${m.name}" loading="lazy" decoding="async" onerror="this.remove();this.parentElement.textContent='${m.initials}'">` : m.initials}</div></div>
       <div class="team-name">${m.name}</div>
       <div class="team-role">${m.role}</div>
     </div>
@@ -662,7 +665,7 @@ function initContactFormEnhancements() {
 
 // ─── INIT ───────────────────────────────────
 renderTeam('teamGrid', 4);
-renderTeam('aboutTeamGrid', 7);
+renderTeam('aboutTeamGrid', 10);
 renderCases();
 renderBlogs();
 renderFAQ();
