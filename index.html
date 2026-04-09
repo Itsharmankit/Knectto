@@ -146,14 +146,17 @@
   <nav id="mainNav">
     <div class="nav-inner">
       <div class="nav-logo" onclick="navigate('home')">Knectto<span>.</span></div>
-      <div class="morphic-nav">
-        <a class="morphic-nav-item active" data-page="home" onclick="navigate('home')">Home</a>
-        <a class="morphic-nav-item" data-page="services" onclick="navigate('services')">Services</a>
-        <a class="morphic-nav-item" data-page="work" onclick="navigate('work')">Work</a>
-        <a class="morphic-nav-item" data-page="about" onclick="navigate('about')">About Us</a>
-      </div>
-      <div class="hamburger" id="hamburger" onclick="toggleMobileNav()">
-        <span></span><span></span><span></span>
+      <div class="nav-right">
+        <div class="morphic-nav">
+          <a class="morphic-nav-item active" data-page="home" onclick="navigate('home')">Home</a>
+          <a class="morphic-nav-item" data-page="services" onclick="navigate('services')">Services</a>
+          <a class="morphic-nav-item" data-page="work" onclick="navigate('work')">Work</a>
+          <a class="morphic-nav-item" data-page="about" onclick="navigate('about')">About Us</a>
+        </div>
+        <button class="btn btn-primary btn-sm nav-contact-btn" onclick="navigate('contact')">Contact</button>
+        <div class="hamburger" id="hamburger" onclick="toggleMobileNav()">
+          <span></span><span></span><span></span>
+        </div>
       </div>
     </div>
   </nav>
@@ -165,6 +168,7 @@
       <li><a onclick="navigate('services');toggleMobileNav()">Services</a></li>
       <li><a onclick="navigate('work');toggleMobileNav()">Work</a></li>
       <li><a onclick="navigate('about');toggleMobileNav()">About Us</a></li>
+      <li><a onclick="navigate('contact');toggleMobileNav()">Contact</a></li>
     </ul>
   </div>
 
@@ -347,154 +351,338 @@
       <div class="container services-intro">
         <div class="back-btn" onclick="navigate('home')">← Back to Home</div>
         <div class="eyebrow" style="margin-bottom:0.75rem">Our Services</div>
-        <h1 class="display-lg"
-          style="color:var(--ink);max-width:900px;margin:0 auto 1rem;text-align:center;line-height:1.2">About Us<br><em style="font-style:italic;color:var(--accent)">Who is Knectto?</em></h1>
-        <p class="services-about-highlight" style="color:var(--ink-2);max-width:900px;font-size:1.05rem;text-align:center;margin:0 auto 1rem">Knectto is a premium digital agency based in Jhansi, Uttar Pradesh, founded in 2026 by seven specialist co-founders: marketers, designers, engineers, and AI strategists. We built Knectto because we were tired of agencies that over-promised and under-delivered.</p>
-        <div class="pdf-chip-grid" style="justify-content:center;max-width:900px;margin:0 auto 1rem">
-          <span class="pdf-chip">Outcomes Over Outputs</span>
-          <span class="pdf-chip">Radical Transparency</span>
-          <span class="pdf-chip">Small by Design</span>
-          <span class="pdf-chip">Speed With Intention</span>
-          <span class="pdf-chip">Partnership, Not Vendor</span>
-          <span class="pdf-chip">Senior-Only Team</span>
+        <h1 class="display-lg" style="color:var(--ink);max-width:900px;margin:0 auto 1rem;text-align:center;line-height:1.2">Our Services</h1>
+        <p class="services-about-highlight" style="color:var(--ink-2);max-width:900px;font-size:1.05rem;text-align:center;margin:0 auto 1rem">Our complete service portfolio covers websites, launch offers, AI agents, mobile apps, and the right-stack comparison for growing businesses.</p>
+        <div class="service-chip-grid" style="justify-content:center;max-width:900px;margin:0 auto 1rem">
+          <span class="service-chip">100% Custom Design</span>
+          <span class="service-chip">Zero Templates</span>
+          <span class="service-chip">Full Code Ownership</span>
+          <span class="service-chip">Milestone Payments</span>
+          <span class="service-chip">1 Month Support</span>
+          <span class="service-chip">Fast Delivery</span>
         </div>
-        <blockquote class="pdf-quote" style="max-width:900px;margin:0 auto">We believe the best agency-client relationships are built on complete transparency, clear accountability, and a shared obsession with what the numbers say.</blockquote>
+        <blockquote class="service-quote brand-line-highlight" style="max-width:900px;margin:0 auto">Your Brand. Our Craft. Real Growth.</blockquote>
       </div>
     </section>
     <section class="section">
       <div class="container">
-        <div class="pdf-brochure">
-          <article class="card reveal reveal-delay-1 pdf-page-card">
-            <div class="pdf-page-head">
-              <h3>Why Digital Presence</h3>
+        <div class="service-brochure">
+          <article class="card reveal reveal-delay-1 service-page-card">
+            <div class="service-page-head">
+              <h3>Knectto Premium Digital Agency</h3>
             </div>
-            <p class="pdf-lead">Why does your business need a website?</p>
-            <p>In 2026, your website is your #1 salesperson. It works 24/7 and reaches customers across India and beyond.</p>
-            <ul class="pdf-list two-col">
-              <li>24/7 Visibility</li>
-              <li>Instant Trust & Credibility</li>
-              <li>Wider Reach, More Leads</li>
-              <li>Higher Revenue</li>
-              <li>Trackable Results</li>
-              <li>Competitive Advantage</li>
+            <p class="service-lead brand-line-highlight">Your Brand. Our Craft. Real Growth.</p>
+            <div class="service-chip-grid">
+              <span class="service-chip">Websites</span>
+              <span class="service-chip">Mobile Apps</span>
+              <span class="service-chip">AI Agents</span>
+              <span class="service-chip">Custom Software</span>
+            </div>
+            <ul class="service-list">
+              <li>Early Partner Offer: lock in launch pricing before it goes up forever.</li>
+              <li>100% Custom Design, zero templates.</li>
+              <li>Full code ownership transferred.</li>
+              <li>1 month free post-launch support.</li>
+              <li>Milestone-based payments, zero risk.</li>
             </ul>
-            <div class="pdf-metric-grid">
-              <div class="pdf-metric"><strong>+213%</strong><span>Demo bookings in 60 days</span></div>
-              <div class="pdf-metric"><strong>+58%</strong><span>Avg. conversion uplift in 90 days</span></div>
-              <div class="pdf-metric"><strong>0.9s</strong><span>Avg. page load time</span></div>
-            </div>
           </article>
 
-          <article class="card reveal pdf-page-card">
-            <div class="pdf-page-head">
-              <h3>Website Types We Build</h3>
+          <article class="card reveal service-page-card">
+            <div class="service-page-head">
+              <h3>About Knectto</h3>
             </div>
-            <p>Different businesses need different website formats. Here is the complete website type table from the catalog.</p>
-            <div class="pdf-table-wrap">
-              <table class="pdf-table">
+            <p class="service-lead">Knectto designs, builds, and launches high-performance digital products.</p>
+            <p>Knectto is a premium digital agency that designs, builds, and launches high-performance websites, mobile apps, and AI-powered agents for businesses ready to grow.</p>
+            <p>We combine world-class design with cutting-edge technology so your brand looks great, works perfectly, and brings in customers 24/7.</p>
+            <h4 style="margin-top:1rem">Why Businesses Choose Knectto</h4>
+            <ul class="service-list two-col">
+              <li>End-to-end service: design, development, launch, and support.</li>
+              <li>Fast delivery: most projects ship in 25-30 working days.</li>
+              <li>Modern tech stack: React, Next.js, Node.js, MongoDB, GSAP, AI APIs.</li>
+              <li>Transparent pricing with milestone-based payments.</li>
+              <li>Dedicated support: 1 month free post-launch bug fixing.</li>
+              <li>SEO and performance baked in from day one.</li>
+              <li>100% custom designs, zero templates.</li>
+              <li>All code ownership transferred on delivery.</li>
+            </ul>
+            <p class="service-note">Our promise: no spin, no jargon. Just honest numbers, clear timelines, and results that matter.</p>
+            <div class="service-table-wrap">
+              <table class="service-table">
                 <thead>
-                  <tr><th>#</th><th>Website Type</th><th>Best For</th><th>Starting From</th></tr>
+                  <tr><th>Service</th><th>What You Get</th><th>Best For</th></tr>
                 </thead>
                 <tbody>
-                  <tr><td>01</td><td>Business / Branding Website</td><td>Coaches, Agencies, Infra companies, Service businesses</td><td>INR 8,000 - INR 18,000</td></tr>
-                  <tr><td>02</td><td>E-Commerce Store</td><td>Retail stores, Fashion, Electronics, FMCG brands</td><td>INR 25,000 - INR 60,000</td></tr>
-                  <tr><td>03</td><td>Portfolio Website</td><td>Photographers, Architects, Designers, Freelancers</td><td>INR 5,000 - INR 12,000</td></tr>
-                  <tr><td>04</td><td>Landing Page / Lead Gen</td><td>Ad campaigns, Product launches, Promotions</td><td>INR 3,000 - INR 8,000</td></tr>
-                  <tr><td>05</td><td>Custom Web App</td><td>SaaS products, Platforms, Booking systems</td><td>INR 40,000 - INR 1,50,000+</td></tr>
+                  <tr><td>Website</td><td>Fast, mobile-ready sites that rank on Google and convert visitors.</td><td>All businesses needing online presence.</td></tr>
+                  <tr><td>Mobile App</td><td>iOS and Android apps customers actually love to use.</td><td>Startups, retail, booking platforms.</td></tr>
+                  <tr><td>AI Agent</td><td>Smart bots that work 24/7 answering, booking, and selling.</td><td>Customer support, lead gen, automation.</td></tr>
                 </tbody>
               </table>
             </div>
-            <p class="pdf-note">All prices are indicative starting points. Final pricing depends on features, pages, and complexity.</p>
           </article>
 
-          <article class="card reveal reveal-delay-1 pdf-page-card">
-            <div class="pdf-page-head">
-              <h3>AI & Automation</h3>
+          <article class="card reveal reveal-delay-1 service-page-card">
+            <div class="service-page-head">
+              <h3>Early Partner Offer</h3>
             </div>
-            <p class="pdf-lead">AI Agents: Your Business on Autopilot</p>
-            <p>AI agents think, plan, and take actions automatically. They handle customer queries, automate tasks, run campaigns, and manage workflows 24/7.</p>
-            <div class="pdf-price-grid">
-              <div class="pdf-price-item"><h4>Customer Support Agent</h4><p>Best for E-commerce, Service businesses, SaaS</p><strong>INR 12,000 - INR 35,000</strong></div>
-              <div class="pdf-price-item"><h4>Ad Automation Agent</h4><p>Best for paid ads businesses</p><strong>INR 15,000 - INR 40,000</strong></div>
-              <div class="pdf-price-item"><h4>Lead Qualification Agent</h4><p>Best for B2B, Agencies, Real estate</p><strong>INR 10,000 - INR 30,000</strong></div>
-              <div class="pdf-price-item"><h4>Inventory & Order Agent</h4><p>Best for E-commerce, Manufacturing, Retail</p><strong>INR 15,000 - INR 45,000</strong></div>
-              <div class="pdf-price-item"><h4>Reporting & Analytics Agent</h4><p>Best for multi-source businesses</p><strong>INR 8,000 - INR 20,000</strong></div>
-              <div class="pdf-price-item"><h4>Workflow Automation Agent</h4><p>Best for operations-heavy teams</p><strong>INR 10,000 - INR 35,000</strong></div>
+            <p class="service-lead">Founding-client offer for businesses ready to move fast.</p>
+            <p>We are launching Knectto in 2026 and looking for founding clients. You get our best pricing, full attention, and a partner invested in your success.</p>
+            <div class="service-price-grid">
+              <div class="service-price-item"><h4>Launch pricing locked in</h4><p>Never increases.</p></div>
+              <div class="service-price-item"><h4>12% discount</h4><p>On full upfront payment.</p></div>
+              <div class="service-price-item"><h4>Priority project slot</h4><p>Faster delivery.</p></div>
+              <div class="service-price-item"><h4>Free strategy call</h4><p>30-minute call.</p></div>
+              <div class="service-price-item"><h4>Direct founder access</h4><p>No middle layer.</p></div>
+              <div class="service-price-item"><h4>Extended support</h4><p>2-month post-launch support.</p></div>
             </div>
-            <p class="pdf-note">Why AI Agents: Save 20-40 hours/week, respond instantly, scale without hiring, reduce human error.</p>
+            <h4 style="margin-top:1rem">Why Partner With Us Now</h4>
+            <ul class="service-list">
+              <li>Small team, real attention.</li>
+              <li>Everything to prove, nothing to hide.</li>
+              <li>We move fast because your growth is our reputation.</li>
+              <li>Founders work directly on your project.</li>
+            </ul>
+            <blockquote class="service-quote">We believe the best agency-client relationships are built on complete transparency, clear accountability, and a shared obsession with what the numbers say.</blockquote>
           </article>
 
-          <article class="card reveal pdf-page-card">
-            <div class="pdf-page-head">
-              <h3>Mobile Applications</h3>
+          <article class="card reveal service-page-card">
+            <div class="service-page-head">
+              <h3>Websites</h3>
             </div>
-            <p class="pdf-lead">Mobile Apps That Grow With Your Business</p>
-            <p>India has 750M+ smartphone users. A mobile app puts your brand in your customer's pocket for loyalty and repeat purchases.</p>
-            <div class="pdf-table-wrap">
-              <table class="pdf-table">
+            <p class="service-lead">Your website is your #1 salesperson.</p>
+            <p>A slow, outdated site loses business every day. A great website builds trust instantly and turns visitors into paying customers.</p>
+            <div class="service-table-wrap">
+              <table class="service-table">
                 <thead>
-                  <tr><th>Feature</th><th>Website</th><th>Mobile App</th></tr>
+                  <tr><th>Website Type</th><th>Starting From</th><th>Timeline</th><th>Best For</th></tr>
                 </thead>
                 <tbody>
-                  <tr><td>Works Offline</td><td>No</td><td>Yes</td></tr>
-                  <tr><td>Push Notifications</td><td>Limited</td><td>Full</td></tr>
-                  <tr><td>Device Features (GPS, Camera)</td><td>Limited</td><td>Full access</td></tr>
-                  <tr><td>Speed & Performance</td><td>Good</td><td>Best</td></tr>
-                  <tr><td>Customer Retention</td><td>Moderate</td><td>High</td></tr>
-                  <tr><td>Discovery (App Store)</td><td>No</td><td>Yes</td></tr>
-                  <tr><td>Home Screen Presence</td><td>No</td><td>Yes</td></tr>
-                  <tr><td>User Experience</td><td>Good</td><td>Premium / Immersive</td></tr>
+                  <tr><td>Business / Branding Website</td><td>INR 8,000 - INR 18,000</td><td>10-20 days</td><td>Local businesses, consultants, service providers.</td></tr>
+                  <tr><td>E-Commerce Store</td><td>INR 15,000 - INR 35,000</td><td>20-30 days</td><td>Product brands selling online 24/7.</td></tr>
+                  <tr><td>Portfolio Website</td><td>INR 8,000 - INR 18,000</td><td>15-20 days</td><td>Photographers, architects, designers, creative agencies.</td></tr>
+                  <tr><td>Landing Page / Lead Gen</td><td>INR 3,000 - INR 8,000</td><td>3-7 days</td><td>Campaigns, launches, and promotions.</td></tr>
+                  <tr><td>Real Estate / Property Website</td><td>INR 12,000 - INR 25,000</td><td>18-25 days</td><td>Listings, enquiries, virtual tours, WhatsApp integration.</td></tr>
+                  <tr><td>Sports Infrastructure Website</td><td>INR 8,449 - INR 15,000</td><td>25-30 days</td><td>Courts, turfs, project galleries, lead capture.</td></tr>
+                  <tr><td>Custom Web App</td><td>INR 40,000+</td><td>30-60 days</td><td>SaaS, booking systems, and custom platforms.</td></tr>
                 </tbody>
               </table>
             </div>
-            <div class="pdf-price-grid">
-              <div class="pdf-price-item"><h4>React Native / Flutter App</h4><strong>INR 30,000 - INR 1,20,000</strong></div>
-              <div class="pdf-price-item"><h4>E-Commerce App</h4><strong>INR 40,000 - INR 1,50,000</strong></div>
-              <div class="pdf-price-item"><h4>Business Dashboard App</h4><strong>INR 35,000 - INR 90,000</strong></div>
-              <div class="pdf-price-item"><h4>Service Booking App</h4><strong>INR 30,000 - INR 80,000</strong></div>
-            </div>
           </article>
 
-          <article class="card reveal reveal-delay-1 pdf-page-card">
-            <div class="pdf-page-head">
-              <h3>Pricing</h3>
+          <article class="card reveal reveal-delay-1 service-page-card">
+            <div class="service-page-head">
+              <h3>What Every Website Includes</h3>
             </div>
-            <p class="pdf-lead">Clear, Honest Pricing. No Hidden Costs.</p>
-            <div class="pdf-package-grid">
-              <div class="pdf-package"><h4>Business Website (Starter)</h4><strong>INR 8,449</strong><p>25-30 days · Up to 8 pages · Mobile responsive · Contact + WhatsApp · SEO setup · 1 month support</p></div>
-              <div class="pdf-package"><h4>E-Commerce Store (Standard)</h4><strong>INR 36,200</strong><p>20-25 days · 50 products · Payment gateway · User accounts · Admin dashboard · 1 month support</p></div>
-              <div class="pdf-package"><h4>Custom Web App</h4><strong>INR 40,000+</strong><p>30-60 days · Full custom design · Complex backend · API integrations · Scalable architecture</p></div>
-              <div class="pdf-package"><h4>AI Starter Agent</h4><strong>INR 10,000</strong><p>7-10 days · Single workflow · WhatsApp/Email · Setup + training · 2 weeks support</p></div>
-              <div class="pdf-package"><h4>AI Business Agent Suite</h4><strong>INR 30,000+</strong><p>15-25 days · Multi-workflow · Multiple channels · CRM integration · Analytics dashboard</p></div>
-              <div class="pdf-package"><h4>Cross-Platform App (React Native)</h4><strong>INR 30,000+</strong><p>30-45 days · Android + iOS · Custom UI/UX · Push notifications · App store submission</p></div>
-            </div>
-            <p class="pdf-note">All packages include domain registration (1 year), hosting (1 year), 2 design revision rounds, and 1 month post-launch bug support.</p>
+            <ul class="service-list two-col">
+              <li>Mobile responsive design on phones and tablets.</li>
+              <li>SEO optimisation so Google can find and rank you.</li>
+              <li>Fast loading speed under 3 seconds.</li>
+              <li>WhatsApp chat button integration.</li>
+              <li>Google Maps and contact form.</li>
+              <li>1 year domain and hosting (on select packages).</li>
+              <li>Admin panel to update content yourself.</li>
+              <li>2 rounds of design revisions included.</li>
+            </ul>
           </article>
 
-          <article class="card reveal pdf-page-card">
-            <div class="pdf-page-head">
-              <h3>How It Works</h3>
+          <article class="card reveal service-page-card">
+            <div class="service-page-head">
+              <h3>AI Agents</h3>
             </div>
-            <p class="pdf-lead">Simple Process. Clear Milestones.</p>
-            <div class="pdf-table-wrap">
-              <table class="pdf-table">
-                <thead><tr><th>Milestone</th><th>Payment</th><th>When</th></tr></thead>
+            <p class="service-lead">Your business on autopilot.</p>
+            <p>An AI Agent can talk to customers, answer questions, take bookings, qualify leads, and automate business processes automatically.</p>
+            <p>It works 24/7, never calls in sick, and learns from your data.</p>
+            <h4 style="margin-top:1rem">Why AI Agents</h4>
+            <ul class="service-list two-col">
+              <li>Save 20-40 hours per week of manual work.</li>
+              <li>Respond to customers instantly.</li>
+              <li>Scale operations without hiring more staff.</li>
+              <li>Reduce human error near zero.</li>
+              <li>Lower support costs by up to 70%.</li>
+            </ul>
+            <div class="service-table-wrap">
+              <table class="service-table">
+                <thead>
+                  <tr><th>AI Agent Type</th><th>Starting From</th><th>Timeline</th><th>What It Does</th></tr>
+                </thead>
                 <tbody>
-                  <tr><td>Milestone 1</td><td>50%</td><td>On Kickoff</td></tr>
-                  <tr><td>Milestone 2</td><td>25%</td><td>After Design Approval</td></tr>
-                  <tr><td>Milestone 3</td><td>25%</td><td>On Final Delivery</td></tr>
+                  <tr><td>WhatsApp AI Chatbot</td><td>INR 8,000 - INR 20,000</td><td>7-14 days</td><td>Auto-replies, FAQs, enquiry capture, lead forwarding.</td></tr>
+                  <tr><td>Website AI Chat Agent</td><td>INR 10,000 - INR 25,000</td><td>10-18 days</td><td>Greets visitors, recommends services, captures contacts.</td></tr>
+                  <tr><td>Lead Qualification Agent</td><td>INR 15,000 - INR 35,000</td><td>14-21 days</td><td>Qualifies leads, scores priority, books serious meetings.</td></tr>
+                  <tr><td>Booking & Scheduling Agent</td><td>INR 12,000 - INR 30,000</td><td>12-20 days</td><td>Checks availability, confirms slots, sends reminders.</td></tr>
+                  <tr><td>Customer Support Agent</td><td>INR 18,000 - INR 45,000</td><td>15-25 days</td><td>Handles tickets, refunds, order status, escalations.</td></tr>
+                  <tr><td>AI Sales Agent</td><td>INR 25,000 - INR 60,000</td><td>20-30 days</td><td>Outreach, pitch, objections, and deal closing automation.</td></tr>
                 </tbody>
               </table>
             </div>
-            <ol class="pdf-steps">
-              <li><strong>Discovery & Planning:</strong> Goals, audience, plan, wireframes, content structure.</li>
-              <li><strong>Design:</strong> On-brand UI/UX with 2 revision rounds.</li>
-              <li><strong>Development:</strong> Clean code, speed, mobile optimization, SEO readiness.</li>
-              <li><strong>Testing & QA:</strong> Multi-device testing and bug fixing before handoff.</li>
-              <li><strong>Launch:</strong> Domain, hosting, deployment, go-live.</li>
-              <li><strong>Support:</strong> 1 month free post-launch bug support.</li>
-            </ol>
-            <p class="pdf-note">Ready to start? Book a free 30-minute strategy call. No pitch. No pressure. <a href="mailto:knectto@gmail.com" style="color:var(--accent);text-decoration:none">knectto@gmail.com</a> · <a href="https://www.knectto.com" target="_blank" rel="noopener noreferrer" style="color:var(--accent);text-decoration:none">www.knectto.com</a> · Jhansi, Uttar Pradesh</p>
+          </article>
+
+          <article class="card reveal service-page-card">
+            <div class="service-page-head">
+              <h3>Mobile Apps</h3>
+            </div>
+            <p class="service-lead">Put your brand in your customer’s pocket.</p>
+            <p>India has 750M+ smartphone users. Apps drive loyalty, repeat purchases, push notifications, and stronger user experience.</p>
+            <div class="service-table-wrap">
+              <table class="service-table">
+                <thead>
+                  <tr><th>App Type</th><th>Starting From</th><th>Timeline</th><th>Best For</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td>Business / Service Booking App</td><td>INR 25,000 - INR 55,000</td><td>30-45 days</td><td>Appointments, slots, payments, reminders.</td></tr>
+                  <tr><td>E-Commerce App</td><td>INR 35,000 - INR 75,000</td><td>40-60 days</td><td>Catalog, cart, UPI/Razorpay, tracking, offers.</td></tr>
+                  <tr><td>On-Demand Delivery App</td><td>INR 60,000 - INR 1,50,000</td><td>60-90 days</td><td>Customer app, vendor panel, delivery tracking.</td></tr>
+                  <tr><td>Community / Social App</td><td>INR 40,000 - INR 90,000</td><td>45-70 days</td><td>Members, updates, events, loyalty community.</td></tr>
+                  <tr><td>Admin Dashboard App</td><td>INR 20,000 - INR 45,000</td><td>25-35 days</td><td>Orders, leads, inventory, reporting from any device.</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </article>
+
+          <article class="card reveal reveal-delay-1 service-page-card">
+            <div class="service-page-head">
+              <h3>Website vs Mobile App vs AI Agent</h3>
+            </div>
+            <div class="service-table-wrap">
+              <table class="service-table">
+                <thead>
+                  <tr><th>Feature</th><th>Website</th><th>Mobile App</th><th>AI Agent</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td>Works on all devices</td><td>Yes</td><td>Mobile only</td><td>Yes</td></tr>
+                  <tr><td>Found on Google</td><td>Yes</td><td>No</td><td>No</td></tr>
+                  <tr><td>24/7 customer support</td><td>No</td><td>Partial</td><td>Yes</td></tr>
+                  <tr><td>Auto bookings & lead capture</td><td>Form only</td><td>Yes</td><td>Fully auto</td></tr>
+                  <tr><td>Push notifications</td><td>No</td><td>Yes</td><td>WhatsApp</td></tr>
+                  <tr><td>Best for first-time online</td><td>Yes</td><td>Later stage</td><td>Add-on</td></tr>
+                  <tr><td>Time to build</td><td>10-30 days</td><td>30-90 days</td><td>7-25 days</td></tr>
+                  <tr><td>Starting price</td><td>INR 5,000</td><td>INR 25,000</td><td>INR 8,000</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="service-note">Most recommended combo: Website + WhatsApp AI Agent for presence plus automatic customer engagement, starting at INR 15,000.</p>
+          </article>
+
+          <article class="card reveal service-page-card">
+            <div class="service-page-head">
+              <h3>Clear, Honest Pricing</h3>
+            </div>
+            <p class="service-lead">Every project is unique, with full pricing transparency.</p>
+            <p>All website packages include domain (1 year), hosting (1 year), 2 rounds of design revisions, and 1 month post-launch bug support at no extra cost.</p>
+            <div class="service-table-wrap">
+              <table class="service-table">
+                <thead>
+                  <tr><th>Website Package</th><th>What's Included</th><th>Timeline</th><th>Investment</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td>Starter Website</td><td>5-page site, SEO, WhatsApp, contact form, 1 year domain + hosting</td><td>10-15 days</td><td>INR 5,000 - INR 8,000</td></tr>
+                  <tr><td>Business Website</td><td>10-page site, animations, portfolio gallery, admin panel, lead form</td><td>15-20 days</td><td>INR 8,000 - INR 18,000</td></tr>
+                  <tr><td>E-Commerce Website</td><td>Full store, payment gateway, inventory, order management, admin dashboard</td><td>20-30 days</td><td>INR 15,000 - INR 35,000</td></tr>
+                  <tr><td>Real Estate Website</td><td>Property listings, virtual tours, enquiry forms, WhatsApp integration</td><td>18-25 days</td><td>INR 12,000 - INR 25,000</td></tr>
+                  <tr><td>Sports Infra Website</td><td>Hero slider, 5 service pages, project gallery, GSAP animations</td><td>25-30 days</td><td>INR 8,449 - INR 15,000</td></tr>
+                  <tr><td>Landing Page</td><td>Single high-converting page, fast build</td><td>3-7 days</td><td>INR 3,000 - INR 8,000</td></tr>
+                  <tr><td>Custom Web App</td><td>Full custom design, complex backend, user roles, API integrations</td><td>30-60 days</td><td>INR 40,000+</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="service-table-wrap">
+              <table class="service-table">
+                <thead>
+                  <tr><th>AI Agent Type</th><th>What's Included</th><th>Timeline</th><th>Investment</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td>WhatsApp AI Chatbot</td><td>24/7 auto-reply, FAQ handling, lead capture, handoff to human</td><td>7-14 days</td><td>INR 8,000 - INR 20,000</td></tr>
+                  <tr><td>Website AI Chat Agent</td><td>Embedded chat, visitor greeting, service recommendation, contact capture</td><td>10-18 days</td><td>INR 10,000 - INR 25,000</td></tr>
+                  <tr><td>Lead Qualification Agent</td><td>Auto-message leads, scoring, meeting booking</td><td>14-21 days</td><td>INR 15,000 - INR 35,000</td></tr>
+                  <tr><td>Booking & Scheduling Agent</td><td>Natural-language booking, availability check, auto-reminders</td><td>12-20 days</td><td>INR 12,000 - INR 30,000</td></tr>
+                  <tr><td>Customer Support Agent</td><td>Tickets, refunds, order status, escalation to human</td><td>15-25 days</td><td>INR 18,000 - INR 45,000</td></tr>
+                  <tr><td>AI Sales Agent</td><td>Outreach, pitch, objection handling, deal closing</td><td>20-30 days</td><td>INR 25,000 - INR 60,000</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="service-table-wrap">
+              <table class="service-table">
+                <thead>
+                  <tr><th>App Type</th><th>What's Included</th><th>Timeline</th><th>Investment</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td>Booking App (Basic)</td><td>iOS + Android, booking flow, push notifications, payment</td><td>30-45 days</td><td>INR 25,000 - INR 55,000</td></tr>
+                  <tr><td>E-Commerce App</td><td>Catalog, cart, Razorpay/UPI, order tracking, push notifications</td><td>40-60 days</td><td>INR 35,000 - INR 75,000</td></tr>
+                  <tr><td>On-Demand Delivery App</td><td>Customer + vendor + delivery tracking ecosystem</td><td>60-90 days</td><td>INR 60,000 - INR 1,50,000</td></tr>
+                  <tr><td>Admin Dashboard App</td><td>Team orders, leads, inventory, analytics from any device</td><td>25-35 days</td><td>INR 20,000 - INR 45,000</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="service-table-wrap">
+              <table class="service-table">
+                <thead>
+                  <tr><th>Bundle</th><th>Includes</th><th>Timeline</th><th>Investment</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td>Website + AI Agent Bundle</td><td>Business website + WhatsApp or chat AI agent</td><td>20-30 days</td><td>INR 15,000 - INR 30,000</td></tr>
+                  <tr><td>Starter Package</td><td>Starter website + WhatsApp chatbot</td><td>15-20 days</td><td>INR 12,000 - INR 22,000</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="service-note">Early Partner Discount: 12% discount on full upfront payment for early partner projects. Pricing is locked for the lifetime of your project relationship with Knectto.</p>
+          </article>
+
+          <article class="card reveal reveal-delay-1 service-page-card">
+            <div class="service-page-head">
+              <h3>How We Work</h3>
+            </div>
+            <p class="service-lead">Simple process. Clear milestones. No surprises.</p>
+            <div class="service-table-wrap">
+              <table class="service-table">
+                <thead>
+                  <tr><th>Step</th><th>What Happens</th><th>Your Role</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td>Discovery & Planning</td><td>We define goals, audience, wireframes, and structure.</td><td>Share ideas and feedback.</td></tr>
+                  <tr><td>Design</td><td>On-brand UI/UX design with 2 revision rounds.</td><td>Approve or request changes.</td></tr>
+                  <tr><td>Development</td><td>Clean build optimized for speed, mobile, and search.</td><td>Stay informed.</td></tr>
+                  <tr><td>Testing & QA</td><td>Cross-device testing and bug fixing.</td><td>Review and report issues.</td></tr>
+                  <tr><td>Launch</td><td>Deployment, hosting setup, domain go-live.</td><td>Celebrate.</td></tr>
+                  <tr><td>Support</td><td>1 month free post-launch bug support.</td><td>Reach us anytime on WhatsApp.</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="service-metric-grid">
+              <div class="service-metric"><strong>50%</strong><span>Milestone 1: Kickoff</span></div>
+              <div class="service-metric"><strong>25%</strong><span>Milestone 2: Design Approved</span></div>
+              <div class="service-metric"><strong>25%</strong><span>Milestone 3: Final Delivery</span></div>
+            </div>
+            <p class="service-note">You only pay the next milestone when you are happy with the previous one. No surprises. No risk.</p>
+          </article>
+
+          <article class="card reveal service-page-card">
+            <div class="service-page-head">
+              <h3>Why Knectto</h3>
+            </div>
+            <ul class="service-list two-col">
+              <li>One team, one point of contact.</li>
+              <li>Plain language, always.</li>
+              <li>100% custom, zero templates.</li>
+              <li>Business goals first.</li>
+              <li>Full code ownership.</li>
+              <li>1 month free bug support.</li>
+              <li>SEO and performance from day one.</li>
+              <li>Built to scale.</li>
+              <li>WhatsApp-first support.</li>
+              <li>Senior-only team.</li>
+            </ul>
+          </article>
+
+          <article class="card reveal reveal-delay-1 service-page-card">
+            <div class="service-page-head">
+              <h3>Ready to Build Something Great?</h3>
+            </div>
+            <p class="service-lead">Book a free 30-minute strategy call. No pitch. No pressure.</p>
+            <ul class="service-list service-contact-links">
+              <li><a class="service-contact-link" href="mailto:knectto@gmail.com">knectto@gmail.com</a></li>
+              <li><a class="service-contact-link" href="https://www.knectto.com" target="_blank" rel="noopener noreferrer">www.knectto.com</a></li>
+              <li><a class="service-contact-link" href="https://maps.app.goo.gl/z8u7miNZezXSFWZt9" target="_blank" rel="noopener noreferrer">Shivaji Nagar, Jhansi, Uttar Pradesh</a></li>
+              <li><a class="service-contact-link" href="https://wa.me/?text=Hi%20Knectto%20Team%2C%20I%20want%20to%20discuss%20a%20project." target="_blank" rel="noopener noreferrer">WhatsApp us for fastest response.</a></li>
+            </ul>
           </article>
         </div>
       </div>
@@ -1119,7 +1307,7 @@
               <div class="contact-icon"><i class="fa-solid fa-location-dot"></i></div>
               <div>
                 <h3 style="font-size:1.05rem;margin-bottom:0.35rem">Location</h3>
-                <p>Shivaji Nagar, Jhansi, Uttar Pradesh</p>
+                <p><a href="https://maps.app.goo.gl/z8u7miNZezXSFWZt9" target="_blank" rel="noopener noreferrer" style="color:var(--accent)">Shivaji Nagar, Jhansi, Uttar Pradesh</a></p>
               </div>
             </div>
 
@@ -1553,6 +1741,7 @@
   </footer>
 
   <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+  <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/bundled/lenis.min.js"></script>
   <script src="script.js"></script>
 </body>
 

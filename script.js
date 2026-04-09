@@ -161,16 +161,49 @@ const ARTICLES = {
 // ─── ROUTING ─────────────────────────────────
 const ALL_PAGES = ['home','services','service-web','service-seo','service-paid','service-brand','service-cro','service-analytics','work','about','blog','article','contact','faq','privacy','terms','cookies','404'];
 let CURRENT_PAGE = 'home';
+let LENIS_INSTANCE = null;
+
+function initSmoothScroll() {
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (prefersReducedMotion || typeof window.Lenis !== 'function') return;
+
+  LENIS_INSTANCE = new window.Lenis({
+    duration: 1.45,
+    easing: (t) => 1 - Math.pow(1 - t, 4),
+    smoothWheel: true,
+    smoothTouch: false,
+    wheelMultiplier: 0.74,
+    touchMultiplier: 1.0
+  });
+
+  function raf(time) {
+    if (LENIS_INSTANCE) LENIS_INSTANCE.raf(time);
+    requestAnimationFrame(raf);
+  }
+
+  requestAnimationFrame(raf);
+}
+
+function scrollToTopSmooth() {
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (LENIS_INSTANCE && !prefersReducedMotion) {
+    LENIS_INSTANCE.scrollTo(0, {
+      duration: 1.2,
+      easing: (t) => 1 - Math.pow(1 - t, 4)
+    });
+    return;
+  }
+
+  window.scrollTo({ top: 0, behavior: prefersReducedMotion ? 'auto' : 'smooth' });
+}
 
 function syncNavVisualState() {
   const nav = document.getElementById('mainNav');
   if (!nav) return;
 
-  const atTop = window.scrollY <= 10;
-  const onHome = CURRENT_PAGE === 'home';
-
-  nav.classList.toggle('nav-home-top', onHome && atTop);
-  nav.classList.toggle('scrolled', !onHome || !atTop);
+  // Keep navbar visually stable across all pages, independent of scroll position.
+  nav.classList.remove('nav-home-top', 'nav-hidden');
+  nav.classList.add('scrolled');
 }
 
 function navigate(pageId) {
@@ -179,7 +212,7 @@ function navigate(pageId) {
     const el = document.getElementById('page-'+id);
     if(el) el.classList.toggle('active', id===pageId);
   });
-  window.scrollTo({top:0,behavior:'instant'});
+  scrollToTopSmooth();
   initReveal();
   updateNav(pageId);
   syncNavVisualState();
@@ -348,49 +381,10 @@ function toggleFaq(i) {
 
 // ─── SCROLL & REVEAL ─────────────────────────
 function initReveal() {
-  setTimeout(() => {
-    const els = document.querySelectorAll('.page.active .reveal');
-    const obs = new IntersectionObserver((entries) => {
-      entries.forEach(e => { if(e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); } });
-    }, { threshold: 0.12 });
-    els.forEach(el => { el.classList.remove('in'); obs.observe(el); });
-    // Also trigger elements in viewport immediately
-    els.forEach(el => {
-      const rect = el.getBoundingClientRect();
-      if(rect.top < window.innerHeight) el.classList.add('in');
-    });
-  }, 50);
+  // Scroll-based reveal animation removed: render all reveal-tagged elements immediately.
+  const els = document.querySelectorAll('.page.active .reveal');
+  els.forEach((el) => el.classList.add('in'));
 }
-
-// ─── NAV SCROLL ─────────────────────────────
-let lastNavScrollY = window.scrollY;
-let navStopTimer = null;
-
-window.addEventListener('scroll', () => {
-  const nav = document.getElementById('mainNav');
-  if (!nav) return;
-
-  const currentY = window.scrollY;
-  const deltaY = currentY - lastNavScrollY;
-
-  syncNavVisualState();
-
-  if (currentY <= 10) {
-    nav.classList.remove('nav-hidden');
-  } else if (deltaY > 4) {
-    nav.classList.add('nav-hidden');
-  } else if (deltaY < -2) {
-    nav.classList.remove('nav-hidden');
-  }
-
-  if (navStopTimer) clearTimeout(navStopTimer);
-  navStopTimer = setTimeout(() => {
-    const navEl = document.getElementById('mainNav');
-    if (navEl) navEl.classList.remove('nav-hidden');
-  }, 150);
-
-  lastNavScrollY = currentY;
-}, { passive: true });
 
 syncNavVisualState();
 
@@ -757,6 +751,7 @@ function initContactFormEnhancements() {
 }
 
 // ─── INIT ───────────────────────────────────
+initSmoothScroll();
 renderTeam('teamGrid', 4);
 renderTeam('aboutTeamGrid', 10);
 renderCases();
